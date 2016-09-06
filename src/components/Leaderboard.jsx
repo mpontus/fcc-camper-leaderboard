@@ -25,7 +25,7 @@ export const Leaderboard = React.createClass({
          ? this.props.entries.reverse()
          : this.props.entries).map((entry, idx) =>
            <tr key={entry.username}>
-             <td>{idx+1}</td>
+             <td className="text-center">{idx+1}</td>
              <td>
                <a href={`https://www.freecodecamp.com/${entry.username}`}>
                  <img className="avatar" src={entry.img} />
@@ -43,7 +43,7 @@ export const Leaderboard = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    entries: state.get('entries'),
+    entries: state.getIn(['leaders', 'entries']),
     sortColumn: state.getIn(['sort', 'column']),
     reverse: state.getIn(['sort', 'reverse']),
   }

@@ -7,7 +7,7 @@ export function sort(column) {
 
 export function setLeaders(period, entries) {
   return {
-    type: 'SET_ENTRIES',
+    type: 'SET_LEADERS',
     period,
     entries
   };

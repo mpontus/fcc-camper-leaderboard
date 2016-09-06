@@ -12,7 +12,7 @@ function sort(state, column) {
 };
 
 function setLeaders(state, period, entries) {
-  return state.set('entries', {period, entries});
+  return state.set('leaders', Map({period, entries}));
 }
 
 export default function (state = Map(), action) {
@@ -22,4 +22,5 @@ export default function (state = Map(), action) {
     case 'SET_LEADERS':
       return setLeaders(state, action.period, action.entries);
   }
+  return state;
 }

@@ -7,7 +7,7 @@ export default React.createClass({
       'sorted': this.props.sortColumn == this.props.column,
       'reverse': this.props.reverse
     });
-    return <th onClick={() => this.props.sort(this.props.column)}>
+    return <th className="sortable" onClick={() => this.props.sort(this.props.column)}>
       <span className={classes}>{this.props.children}</span>
     </th>
   }

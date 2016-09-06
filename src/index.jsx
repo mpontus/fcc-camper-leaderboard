@@ -8,20 +8,20 @@ import reducer from './reducer';
 import {sort, setLeaders} from './action_creators';
 import {LeaderboardContainer} from './components/Leaderboard';
 
-require('./stylesheets/main.scss');
+require('./stylesheet.scss');
 
 const store = createStore(reducer);
 
-store.subscribe((what) => {
-  let state = store.getState();
+store.subscribe(() => {
+  const state = store.getState();
   const sortedColumn = state.getIn(['sort', 'column']);
   const currentPeriod = state.getIn(['leaders', 'period']);
   if (sortedColumn !== currentPeriod) {
-    console.log(sortedColumn, currentPeriod);
     const sourceUrl = getSourceUrlForPeriod(sortedColumn);
     $.get(sourceUrl).done( data =>
       store.dispatch(setLeaders(sortedColumn, data)));
   }
+  return state;
 });
 
 store.dispatch(sort('recent'));
