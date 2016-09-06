@@ -5,9 +5,10 @@ export function sort(column) {
   };
 }
 
-export function setEntries(entries) {
+export function setLeaders(period, entries) {
   return {
     type: 'SET_ENTRIES',
+    period,
     entries
   };
 }

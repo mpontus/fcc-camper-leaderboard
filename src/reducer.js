@@ -11,15 +11,15 @@ function sort(state, column) {
   });
 };
 
-function setEntries(state, entries) {
-  return state.set('entries', entries);
+function setLeaders(state, period, entries) {
+  return state.set('entries', {period, entries});
 }
 
 export default function (state = Map(), action) {
   switch(action.type) {
     case 'SORT':
       return state.update('sort', Map(), state => sort(state, action.column));
-    case 'SET_ENTRIES':
-      return setEntries(state, action.entries);
+    case 'SET_LEADERS':
+      return setLeaders(state, action.period, action.entries);
   }
 }

@@ -23,12 +23,12 @@ export const Leaderboard = React.createClass({
         {this.props.entries &&
          (this.props.reverse
          ? this.props.entries.reverse()
-         : this.props.entries).forEach((entry, idx) =>
-           <tr>
+         : this.props.entries).map((entry, idx) =>
+           <tr key={entry.username}>
              <td>{idx+1}</td>
              <td>
                <a href={`https://www.freecodecamp.com/${entry.username}`}>
-                 <img className="avatar" src="{entry.img}" />
+                 <img className="avatar" src={entry.img} />
                  <span className="username">{entry.username}</span>
                </a>
              </td>
