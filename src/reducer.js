@@ -1,4 +1,4 @@
-import {Map} from 'immutable';
+import {Map, List} from 'immutable';
 
 function sort(state, column) {
   if (state.get('column') === column) {
@@ -12,7 +12,10 @@ function sort(state, column) {
 };
 
 function setLeaders(state, period, entries) {
-  return state.set('leaders', Map({period, entries}));
+  return state.set('leaders', Map({
+    period: period,
+    entries: List(entries)
+  }));
 }
 
 export default function (state = Map(), action) {
