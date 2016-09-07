@@ -12,10 +12,9 @@ function sort(state, column) {
 };
 
 function setLeaders(state, period, entries) {
-  return state.set('leaders', Map({
-    period: period,
-    entries: List(entries)
-  }));
+  return state.merge({
+    leaders: { period, entries }
+  });
 }
 
 export default function (state = Map(), action) {
